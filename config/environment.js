@@ -18,9 +18,22 @@ module.exports = function(environment) {
     },
 
     APP: {
+      host: 'http://drupal.test/api',  // @todo - Fill in your Drupal backend URL
+      oauth2TokenEndpoint: '/oauth/token',
+      oauth2ClientId: '0a7f8d94-b4f1-4579-98ff-1cd15ef63794',  // @todo - Fill in your client UUID
+
       // Here you can pass flags/options to your application instance
       // when it is created
     }
+  };
+
+  // Map Drupal Entities to Ember models with simplified one-part names
+  ENV.drupalEntityModels = {
+    // @todo - map any additional Drupal entities you want to use
+    "article": {},  // Map 'article' Ember data model to Drupal/JSON API type 'node--article'
+    "user": { entity: 'user', bundle: 'user' },  // Map 'user' model to 'user--user'
+    "file": { entity: 'file', bundle: 'file' },  // Map 'file' model to 'file--file'
+    "tag": { entity: 'taxonomy_term', bundle: 'tags' }  // Map 'tag' model to 'taxonomy-term--tags'
   };
 
   if (environment === 'development') {

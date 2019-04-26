@@ -1,0 +1,10 @@
+{{outlet}}
+
+<h2>{{model.title}}</h2>
+<p>by {{model.uid.name}}, created {{model.createdDate}}</p>
+
+{{#if model.field_image.isWebImage}}
+  <img src="{{model.field_image.absoluteUrl}}">
+{{/if}}
+
+{{{model.body.value}}}
